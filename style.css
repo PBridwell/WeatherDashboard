@@ -1,0 +1,10 @@
+.title {
+    background-color: #3b8ad8;
+    padding: 25px;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+.title h2 {
+    color: white;
+    font-weight: bold;
+}
