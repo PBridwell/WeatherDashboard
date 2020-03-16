@@ -20,6 +20,22 @@
     <!--Set container for main-->
     <main class='container'>
 
+        <!--Buttons generated here-->
+        <div id='buttons-view'>
+
+        </div>
+
+        <form id="city-form">
+            <label for="city-input">Search for a city</label>
+            <input type="text" id="city-input">
+            <br>
+      
+            <!-- Button triggers new movie to be added -->
+            <input id="add-city" type="submit" value="Add city to Dashboard">
+          </form>
+
+        <!--Cities weather displayed here-->
+        <div id='cities-view'></div>
 
 
 
@@ -37,8 +53,8 @@
 
 
 
-
-
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script
 src="https://code.jquery.com/jquery-3.4.1.js"
 integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
