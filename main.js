@@ -1,4 +1,4 @@
-var cities = [];
+var cities = ['London', 'Paris', 'Campinas'];
 // function to get city UV index
 // function cityUV() {
 // var key = "166a433c57516f51dfab1f7edaed8413"
@@ -24,8 +24,7 @@ function displayCityWeather() {
 // API key for first call 
 var APIKey = "166a433c57516f51dfab1f7edaed8413";
 // set URL for first API call 
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-  "q=London&appid=" + APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +"q="+ city +"&appid=" + APIKey ;
 
   // AJAX call main
 $.ajax({
@@ -87,11 +86,48 @@ $.ajax({
     $('#cities-view').prepend(cityDiv);
   });
 }
-displayCityWeather();
+// displayCityWeather();
 
 // Display added buttons to page
 
 function renderButtons() {
   // Clear buttons to avoid repetition of buttons 
-  $('#buttons-view').empty()
-}
+  $('#buttons-view').empty();
+
+  // Looping through the array of cities
+  for (var i = 0; i < cities.length; i++) {
+    console.log(cities[i]);
+
+    // Then dynamicaly generating buttons for each city in the array
+    
+    var a = $("<button>");
+    // Adding a class of movie-btn to our button
+    a.addClass("city-btn");
+    // Adding a data-attribute
+    a.attr("data-name", cities[i]);
+    // Providing the initial button text
+    a.text(cities[i]);
+    // Adding the button to the buttons-view div
+    $("#buttons-view").append(a);
+  }
+};
+
+// Event handler for when city button is clicked
+// This function handles events where a movie button is clicked
+$("#add-city").on("click", function(event) {
+  event.preventDefault();
+  // This line grabs the input from the textbox
+  var city = $("#city-input").val().trim();
+
+  // Adding movie from the textbox to our array
+  cities.push(city);
+
+  // Calling renderButtons which handles the processing of our movie array
+  renderButtons();
+  $('#city-input').val().empty();
+});
+// Adds an event listener to all buttons with 'city-btn' class and calls weather function
+$(document).on("click", ".city-btn", displayCityWeather);
+
+// Initial Renderbuttons 
+renderButtons();
