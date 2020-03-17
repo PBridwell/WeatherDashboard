@@ -57,6 +57,13 @@ $.ajax({
     //Append to city div
     cityDiv.append(pDate);
 
+    // Display weather icon 
+    var iconSrc = response.weather[0].icon
+
+    var icon = $('<img class="icon">')
+    icon.attr('src', 'http://openweathermap.org/img/wn/10d@2x.png');
+    cityDiv.append(icon);
+
     // Store temperature 
     var temp = response.main.temp;
     console.log(temp);
