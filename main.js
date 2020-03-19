@@ -61,7 +61,7 @@ $.ajax({
     var iconSrc = response.weather[0].icon
 
     var icon = $('<img class="icon">')
-    icon.attr('src', 'http://openweathermap.org/img/wn/10d@2x.png');
+    icon.attr('src', 'http://openweathermap.org/img/wn/' +iconSrc+ '@2x.png');
     cityDiv.append(icon);
 
     // Store temperature 
